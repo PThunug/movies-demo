@@ -1,0 +1,54 @@
+<section class="new-training" fxLayout fxLayoutAlign="center">
+  <form (ngSubmit)="onAddMovie(f)" #f="ngForm">
+    <mat-card fxFlex.xs="100%" > <!--fxFlex="400px"-->
+      <mat-card-title fxLayoutAlign="center">Add Movie</mat-card-title>
+      <mat-card-content fxLayoutAlign="center">
+        <mat-form-field class="example-full-width">
+          <mat-label for="title">Title</mat-label>
+          <input type="text"
+                 id="title"
+                 class="form-control"
+                 ngModel
+                 name="title" matInput/> <!--placeholder="Ex. Pizza"-->
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label for="description">Description</mat-label>
+          <input type="text"
+                 id="description"
+                 class="form-control"
+                 ngModel
+                 name="description" matInput /> <!--placeholder="Ex. It makes me feel..."-->
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label for="averageratings">Average Ratings</mat-label>
+          <input type="number"
+                 id="averageratings"
+                 class="form-control"
+                 ngModel
+                 name="averageratings" matInput /> <!--placeholder="Ex. It makes me feel..."-->
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label for="yourrating">Your Rating</mat-label>
+          <input type="number"
+                 id="yourrating"
+                 class="form-control"
+                 ngModel
+                 name="yourrating" matInput /> <!--placeholder="Ex. It makes me feel..."-->
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label for="comments">Comments</mat-label>
+          <input type="text"
+                 id="comments"
+                 class="form-control"
+                 ngModel
+                 name="comments" matInput /> <!--placeholder="Ex. It makes me feel..."-->
+        </mat-form-field>
+
+        <!--<mat-spinner *ngIf="isLoading"></mat-spinner>-->
+      </mat-card-content>
+      <mat-card-actions fxLayoutAlign="center">
+        <button type="submit" mat-button [disabled]="f.invalid">Add</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</section>
