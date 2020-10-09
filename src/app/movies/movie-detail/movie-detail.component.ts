@@ -24,7 +24,6 @@ export class MovieDetailComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.id = +params['id'];
-          debugger;
           this.movie = this.movieService.getMovieBasedOnIndex(this.id);
         }
       );

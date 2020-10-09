@@ -1,4 +1,45 @@
-<section class="new-training" fxLayout fxLayoutAlign="center">
+<!--<section class="new-training" fxLayout fxLayoutAlign="center">-->
+
+  <mat-card  *ngFor="let card of  obs | async;let i=index">
+    <mat-card-content fxLayoutAlign="center" >
+      <mat-card-title fxLayoutAlign="center" >
+        <p [hidden]="editFlag[i]">{{card.title}}</p>
+        <div [hidden]="!editFlag[i]">
+          <mat-form-field >
+            <input
+              type="text"
+              matInput
+              placeholder="Movie Title"
+              [(ngModel)]="card.title">
+          </mat-form-field>
+        </div>
+      </mat-card-title>
+    </mat-card-content>
+    <mat-card-content fxLayoutAlign="center" >
+      <p [hidden]="editFlag[i]">{{card.description}}</p>
+      <div [hidden]="!editFlag[i]">
+        <mat-form-field >
+          <textarea matInput placeholder="Leave a comment here" [(ngModel)]="card.description"></textarea>
+        </mat-form-field >
+      </div>
+    </mat-card-content>
+    <mat-card-actions fxLayoutAlign="center">
+      <button mat-raised-button (click)="deleteAction(i)"  color="primary" >
+        Delete
+      </button>
+      <button mat-raised-button (click)="saveAction(i)" color="primary" >
+        Save
+      </button>
+      <button mat-raised-button (click)="editAction(i)" color="primary">
+        Edit
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-paginator [length]="dataSource.data.length" [pageSize]='5' [pageSizeOptions]="[5, 10, 25, 50]"></mat-paginator>
+
+
+
+
   <form (ngSubmit)="onAddMovie(f)" #f="ngForm">
     <mat-card fxFlex.xs="100%" > <!--fxFlex="400px"-->
       <mat-card-title fxLayoutAlign="center">Add Movie</mat-card-title>
@@ -51,4 +92,4 @@
       </mat-card-actions>
     </mat-card>
   </form>
-</section>
+<!--</section>-->
